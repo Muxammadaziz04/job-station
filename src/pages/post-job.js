@@ -1,4 +1,3 @@
-import CHead from 'components/Head';
 import React from 'react';
 import { Form } from 'react-bootstrap';
 

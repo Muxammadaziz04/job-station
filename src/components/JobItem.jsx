@@ -1,13 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const JobItem = () => {
     return (
         <Link href='/job-single'>
             <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-                <div className="job-listing-logo">
-                    <img
-                        src="images/job_logo_1.jpg"
+                <div className="job-listing-logo position-relative" style={{width: '150px', height: '150px'}}>
+                    <Image
+                        src="/images/job_logo_1.jpg"
                         alt="Free Website Template by Free-Template.co"
+                        layout="fill"
+                        objectFit="cover"
                         className="img-fluid"
                     />
                 </div>

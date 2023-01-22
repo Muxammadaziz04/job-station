@@ -1,4 +1,3 @@
-import CHead from 'components/Head'
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 
@@ -6,15 +5,7 @@ export default function Document() {
     return (
         <Html>
             <Head>
-                <link rel="stylesheet" href="css/custom-bs.css" />
-                <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css" />
-                <link rel="stylesheet" href="fonts/icomoon/style.css" />
-                <link rel="stylesheet" href="fonts/line-icons/style.css" />
-                <link rel="stylesheet" href="css/owl.carousel.min.css" />
-                <link rel="stylesheet" href="css/animate.min.css" />
-                {/* MAIN CSS */}
-                <link rel="stylesheet" href="css/style.css" />
             </Head>
             <body>
                 <Main />

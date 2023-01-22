@@ -1,4 +1,4 @@
-import CHead from "components/Head";
+import Image from "next/image";
 
 
 const Contacts = () => {
@@ -133,10 +133,12 @@ const Contacts = () => {
                                             quisquam optio nostrum sit”
                                         </p>
                                     </blockquote>
-                                    <div className="block__91147 d-flex align-items-center">
-                                        <figure className="mr-4">
-                                            <img
-                                                src="images/person_1.jpg"
+                                    <div className="block__91147 d-flex align-items-center position-relative">
+                                        <figure className="mr-4 position-relative" style={{width: '40px', height: '40px'}}>
+                                            <Image
+                                                layout='fill'
+                                                objectFit='cover'
+                                                src="/images/person_1.jpg"
                                                 alt="Image"
                                                 className="img-fluid"
                                             />
@@ -159,9 +161,11 @@ const Contacts = () => {
                                         </p>
                                     </blockquote>
                                     <div className="block__91147 d-flex align-items-center">
-                                        <figure className="mr-4">
-                                            <img
-                                                src="images/person_2.jpg"
+                                        <figure className="mr-4 position-relative" style={{width: '40px', height: '40px'}}>
+                                            <Image
+                                                layout='fill'
+                                                objectFit='cover'
+                                                src="/images/person_2.jpg"
                                                 alt="Image"
                                                 className="img-fluid"
                                             />

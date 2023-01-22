@@ -1,7 +1,13 @@
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import { Suspense } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import '../../public/css/custom-bs.css'
+import '../../public/css/jquery.fancybox.min.css'
+import '../../public/css/jquery.fancybox.min.css'
+import '../../public/fonts/icomoon/style.css'
+import '../../public/fonts/line-icons/style.css'
+import '../../public/css/animate.min.css'
+import '../../public/css/style.css'
 
 import '../styles/globals.scss'
 import Layout from 'components/Layout';

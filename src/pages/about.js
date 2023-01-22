@@ -1,5 +1,4 @@
-import CHead from "components/Head";
-
+import Image from "next/image";
 
 const About = () => {
     return (
@@ -37,22 +36,15 @@ const About = () => {
                 <section className="site-section pb-0">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-lg-6 mb-5 mb-lg-0">
-                                <a
-                                    data-fancybox=""
-                                    data-ratio={2}
-                                    href="https://vimeo.com/317571768"
-                                    className="block__96788"
-                                >
-                                    <span className="play-icon">
-                                        <span className="icon-play" />
-                                    </span>
-                                    <img
-                                        src="images/sq_img_6.jpg"
+                            <div className="col-lg-6 mb-5 mb-lg-0 position-relative" style={{width: '570px', height: '369px'}}>
+                                    <Image
+                                        src="/images/sq_img_6.jpg"
                                         alt="Image"
+                                        layout='fill'
+                                        objectFit='cover'
                                         className="img-fluid img-shadow"
                                     />
-                                </a>
+                                
                             </div>
                             <div className="col-lg-5 ml-auto">
                                 <h2 className="section-title mb-3">
@@ -73,25 +65,17 @@ const About = () => {
                         </div>
                     </div>
                 </section>
-                <section className="site-section pt-0">
+                <section className="site-section pt-5">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-lg-6 mb-5 mb-lg-0 order-md-2">
-                                <a
-                                    data-fancybox=""
-                                    data-ratio={2}
-                                    href="https://vimeo.com/317571768"
-                                    className="block__96788"
-                                >
-                                    <span className="play-icon">
-                                        <span className="icon-play" />
-                                    </span>
-                                    <img
-                                        src="images/sq_img_8.jpg"
+                            <div className="col-lg-6 mb-5 mb-lg-0 order-md-2 position-relative" style={{width: '570px', height: '369px'}}>
+                                    <Image
+                                        layout='fill'
+                                        objectFit='cover'
+                                        src="/images/sq_img_8.jpg"
                                         alt="Image"
                                         className="img-fluid img-shadow"
                                     />
-                                </a>
                             </div>
                             <div className="col-lg-5 mr-auto order-md-1  mb-5 mb-lg-0">
                                 <h2 className="section-title mb-3">JobBoard For Workers</h2>
@@ -118,9 +102,11 @@ const About = () => {
                             </div>
                         </div>
                         <div className="row align-items-center block__69944">
-                            <div className="col-md-6">
-                                <img
-                                    src="images/person_6.jpg"
+                            <div className="col-md-6 position-relative" style={{width: '500px', height: '500px'}}>
+                                <Image
+                                    src="/images/person_6.jpg"
+                                    layout='fill'
+                                    objectFit='cover'
                                     alt="Image"
                                     className="img-fluid mb-4 rounded"
                                 />
@@ -150,9 +136,11 @@ const About = () => {
                                     </a>
                                 </div>
                             </div>
-                            <div className="col-md-6 order-md-2 ml-md-auto">
-                                <img
-                                    src="images/person_5.jpg"
+                            <div className="col-md-6 order-md-2 ml-md-auto position-relative" style={{width: '500px', height: '500px'}}>
+                                <Image
+                                    layout='fill'
+                                    objectFit='cover'
+                                    src="/images/person_5.jpg"
                                     alt="Image"
                                     className="img-fluid mb-4 rounded"
                                 />

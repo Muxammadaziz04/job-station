@@ -1,4 +1,5 @@
 import JobItem from 'components/JobItem';
+import Image from 'next/image';
 
 const JobSingle = () => {
     return (
@@ -29,8 +30,8 @@ const JobSingle = () => {
                         <div className="row align-items-center mb-5">
                             <div className="col-lg-8 mb-4 mb-lg-0">
                                 <div className="d-flex align-items-center">
-                                    <div className="border p-2 d-inline-block mr-3 rounded">
-                                        <img src="images/job_logo_5.jpg" alt="Image" />
+                                    <div className="border p-2 d-inline-block mr-3 rounded position-relative">
+                                        <img src="/images/job_logo_5.jpg" layout='fill' objectFit='cover' alt="Image" />
                                     </div>
                                     <div>
                                         <h2>Product Designer</h2>
