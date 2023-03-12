@@ -1,12 +1,12 @@
 import axios from "axios";
-import { getUser } from "utils/userDetails";
+import { parseCookies } from "nookies";
 
-const { token } = getUser()
+const cookies = parseCookies()
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
     headers: {
-        Authorization: `Bareer ${token}`
+        Authorization: `Bareer ${cookies?.token}`
     }
 })
 

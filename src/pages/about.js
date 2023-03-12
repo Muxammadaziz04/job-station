@@ -11,9 +11,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="site-mobile-menu-body" />
-                </div>{" "}
-                {/* .site-mobile-menu */}
-                {/* HOME */}
+                </div>
                 <section
                     className="section-hero overlay inner-page bg-image"
                     style={{ backgroundImage: 'url("images/hero_1.jpg")' }}

@@ -1,13 +1,23 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+    const router = useRouter()
+    const [token, setToken] = useState()
+    const [user, setUser] = useState()
+    useEffect(() => {
+        setUser(typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user') || JSON.stringify("")) : "")
+        setToken(typeof window !== "undefined" ? JSON.parse(localStorage?.getItem('token') || JSON.stringify("")) : '')
+    }, [router.pathname])
+
     return (
         <header className="site-navbar mt-3">
             <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="site-logo col-6">
                         <Link href='/'>
-                            <a>JobStation</a>
+                            <a className={['/search/resume', '/search/vacancies'].includes(router.pathname) ? 'text-dark' : ''}>JobStation</a>
                         </Link>
                     </div>
                     <nav className="mx-auto site-navigation">
@@ -29,32 +39,24 @@ const Navbar = () => {
                                     <a>Contact</a>
                                 </Link>
                             </li>
-                            <Link href='/post-job' className="d-lg-none">
-                                <a className="d-lg-none">
-                                    <span className="mr-2">+</span> Post a Job
-                                </a>
-                            </Link>
-                            <Link href='/login' className="d-lg-none">
-                                <a className="d-lg-none">Log In</a>
-                            </Link>
                         </ul>
                     </nav>
                     <div className="right-cta-menu text-right d-flex aligin-items-center col-6">
                         <div className="ml-auto">
-                            <Link href='/post-job'>
+                            {user && <Link href={user?.user_role === 'employer' ? '/post-job' : '/post-resume'}>
                                 <a
                                     className="btn btn-outline-white border-width-2 d-none d-lg-inline-block"
                                 >
                                     <span className="mr-2 icon-add" />
-                                    Post a Job
+                                    {user?.user_role === 'employer' ? 'Post a Job' : 'Post a resume'}
                                 </a>
-                            </Link>
-                            <Link href='/login'>
+                            </Link>}
+                            <Link href={!token ? '/auth/login' : '/profile'}>
                                 <a
-                                    className="btn btn-primary border-width-2 d-none d-lg-inline-block"
+                                    className="btn btn-primary border-width-2 d-none d-lg-inline-block ml-3"
                                 >
                                     <span className="mr-2 icon-lock_outline" />
-                                    Log In
+                                    {token ? 'profile' : 'Sing-in / sing-up'}
                                 </a>
                             </Link>
                         </div>

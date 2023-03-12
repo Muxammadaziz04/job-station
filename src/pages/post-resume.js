@@ -1,18 +1,18 @@
 import Loader from "components/Loader";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { postVacancy } from "services/vacancy";
+import { postResume } from "services/vacancy";
 
 const PostJob = () => {
     const [loading, setLoading] = useState(false)
     const { register, handleSubmit } = useForm()
 
-    const saveJob = async (data) => {
+    const saveResume = async (data) => {
         try {
             setLoading(true)
             const user = JSON.parse(localStorage.getItem('user'))
-            const res = await postVacancy({data: { ...data, user_id: user?.id }})
-            alert('Vacancy successful created')
+            const res = await postResume({data: { ...data, user_id: user?.id }})
+            alert('Resume successful created')
         } catch (error) {
             console.log(error);
             alert('Somethink went wrong')
@@ -41,12 +41,12 @@ const PostJob = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-7">
-                                <h1 className="text-white font-weight-bold">Post A Job</h1>
+                                <h1 className="text-white font-weight-bold">Post A Resume</h1>
                                 <div className="custom-breadcrumbs">
                                     <a href="#">Home</a> <span className="mx-2 slash">/</span>
-                                    <a href="#">Job</a> <span className="mx-2 slash">/</span>
+                                    <a href="#">Resume</a> <span className="mx-2 slash">/</span>
                                     <span className="text-white">
-                                        <strong>Post a Job</strong>
+                                        <strong>Post a Resume</strong>
                                     </span>
                                 </div>
                             </div>
@@ -54,12 +54,12 @@ const PostJob = () => {
                     </div>
                 </section>
                 <section className="site-section">
-                    <form className="container" onSubmit={handleSubmit(saveJob)}>
+                    <form className="container" onSubmit={handleSubmit(saveResume)}>
                         <div className="row align-items-center mb-5">
                             <div className="col-lg-8 mb-4 mb-lg-0">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <h2>Post A Job</h2>
+                                        <h2>Post A Resume</h2>
                                     </div>
                                 </div>
                             </div>
@@ -67,27 +67,36 @@ const PostJob = () => {
                         <div className="row mb-5">
                             <div className="col-lg-12">
                                 <div className="p-4 p-md-5 border rounded" >
-                                    <h3 className="text-black mb-5 border-bottom pb-2">Job Details</h3>
+                                    <h3 className="text-black mb-5 border-bottom pb-2">Resume Details</h3>
                                     <div className="form-group">
-                                        <label htmlFor="email">Job name</label>
+                                        <label htmlFor="email">Full name</label>
                                         <input
                                             type="text"
                                             className="form-control"
                                             required
-                                            {...register('job_name')}
+                                            {...register('full_name')}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="job-title">Employer or Organization name</label>
+                                        <label htmlFor="job-title">Working_sphere</label>
                                         <input
                                             type="text"
                                             className="form-control"
                                             required
-                                            {...register('organization_name')}
+                                            {...register('working_sphere')}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="job-location">Contact number</label>
+                                        <label htmlFor="job-location">Experience</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            required
+                                            {...register('experience')}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="job-location">Contact</label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -96,37 +105,18 @@ const PostJob = () => {
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="job-location">Working days</label>
+                                        <label htmlFor="job-location">Date of birth</label>
                                         <input
-                                            type="text"
+                                            type="date"
                                             className="form-control"
                                             required
-                                            {...register('working_days')}
+                                            {...register('date_of_brith')}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="job-location">Working hours</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            required
-                                            {...register('working_hours')}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="job-location">Salary</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            required
-                                            {...register('salary')}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="job-description">Job Description</label>
+                                        <label htmlFor="job-description">Additional information</label>
                                         <div className="editor" id="editor-1">
-                                            <p>Write Job Description!</p>
-                                            <textarea className="form-control" id="exampleFormControlTextarea3" rows="7" {...register('text')}></textarea>
+                                            <textarea className="form-control" id="exampleFormControlTextarea3" rows="7" {...register('info')}></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +127,7 @@ const PostJob = () => {
                                 <div className="row">
                                     <div className="ml-auto col-6">
                                         <button type="submit" className="btn btn-block btn-primary btn-md">
-                                            Save Job
+                                            Save Resume
                                         </button>
                                     </div>
                                 </div>
