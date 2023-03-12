@@ -64,6 +64,7 @@ const Search = ({data}) => {
 export default Search;
 
 export async function getServerSideProps(ctx) {
+  try {
     const res = await searchVacancy(ctx.query.search)
 
     return {
@@ -71,4 +72,7 @@ export async function getServerSideProps(ctx) {
             data: res || []
         }
     }
+  } catch (error) {
+    
+  }
 }

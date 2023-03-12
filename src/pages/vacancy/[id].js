@@ -93,10 +93,14 @@ const VacancySingle = ({data}) => {
 export default VacancySingle;
 
 export async function getServerSideProps(ctx) {
-    const res = await getVacancyById(ctx.params.id)
+    try {
+        const res = await getVacancyById(ctx.params.id)
     return {
         props: {
             data: res
         }
+    }
+    } catch (error) {
+        
     }
 }

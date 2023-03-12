@@ -65,10 +65,14 @@ const Search = ({ data }) => {
 export default Search;
 
 export async function getServerSideProps(ctx) {
-    const res = await searchCvs(ctx.query.search)
+    try {
+        const res = await searchCvs(ctx.query.search)
     return {
         props: {
             data: res || []
         }
+    }
+    } catch (error) {
+        
     }
 }

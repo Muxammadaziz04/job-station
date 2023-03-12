@@ -84,10 +84,14 @@ const CvSingle = ({data = {}}) => {
 export default CvSingle;
 
 export async function getServerSideProps(ctx) {
+   try {
     const res = await getCvById(ctx.params.id)
     return {
         props: {
             data: res
         }
     }
+   } catch (error) {
+    
+   }
 }
