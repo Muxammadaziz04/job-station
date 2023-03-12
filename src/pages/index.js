@@ -95,12 +95,16 @@ export default function Home({ data }) {
 export async function getServerSideProps() {
   try {
     const res = await searchVacancy()
+
     return {
       props: {
         data: res
       }
     }
   } catch (error) {
-
+    console.log(error.message);
+    return {
+      props: {}
+    }
   }
 }

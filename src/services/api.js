@@ -1,13 +1,8 @@
 import axios from "axios";
-import { parseCookies } from "nookies";
-
-const cookies = parseCookies()
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
-    headers: {
-        Authorization: `Bareer ${cookies?.token}`
-    }
+    headers: { "Accept-Encoding": "gzip,deflate,compress" } 
 })
 
 export default api

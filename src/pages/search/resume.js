@@ -73,6 +73,8 @@ export async function getServerSideProps(ctx) {
         }
     }
     } catch (error) {
-        
+        return {
+            props: {}
+          }
     }
 }
