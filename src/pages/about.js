@@ -31,7 +31,7 @@ const About = () => {
                         </div>
                     </div>
                 </section>
-                <section className="site-section pb-0">
+                {/* <section className="site-section pb-0">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-lg-6 mb-5 mb-lg-0 position-relative" style={{width: '570px', height: '369px'}}>
@@ -91,7 +91,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="site-section">
                     <div className="container">
                         <div className="row mb-5">

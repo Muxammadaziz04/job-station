@@ -35,7 +35,7 @@ const EmployerRegister = () => {
                 <div className="row">
                     <div className="col-lg-6 mx-auto">
                         <form className="p-4 p-md-5 border rounded bg-white" onSubmit={handleSubmit(registerFunc)}>
-                            <h3 className="text-black mb-5 border-bottom pb-2">Sing-up as employee</h3>
+                            <h3 className="text-black mb-5 border-bottom pb-2">Sing-up as employer</h3>
                             <div className="form-group">
                                 <label htmlFor="email">Login *</label>
                                 <input

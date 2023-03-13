@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         <>
             {!arr.includes(router.pathname) && <Navbar />}
             {children}
-            {!arr.includes(router.pathname) && <Footer />}
+            {/* {!arr.includes(router.pathname) && <Footer />} */}
         </>
     );
 }

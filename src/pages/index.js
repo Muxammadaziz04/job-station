@@ -66,7 +66,7 @@ export default function Home({ data }) {
           <div className="container">
             <div className="row mb-5 justify-content-center">
               <div className="col-md-7 text-center">
-                <h2 className="section-title mb-2">43,167 Job Listed</h2>
+                <h2 className="section-title mb-2">{data?.meta?.pagination?.total} Job Listed</h2>
               </div>
             </div>
             <ul className="job-listings mb-5">

@@ -34,11 +34,11 @@ const Navbar = () => {
                                     <a>About</a>
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href='/contacts'>
                                     <a>Contact</a>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                     <div className="right-cta-menu text-right d-flex aligin-items-center col-6">
@@ -59,6 +59,17 @@ const Navbar = () => {
                                     {token ? 'profile' : 'Sing-in / sing-up'}
                                 </a>
                             </Link>
+                            {
+                                token && <button
+                                    className="btn btn-primary border-width-2 d-none d-lg-inline-block ml-3"
+                                    onClick={() => {
+                                        localStorage.clear()
+                                        router.push('/auth/login')
+                                    }}
+                                >
+                                    Log out
+                                </button>
+                            }
                         </div>
                         <a
                             className="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"
