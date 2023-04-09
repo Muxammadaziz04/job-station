@@ -1,10 +1,20 @@
-import JobItem from 'components/JobItem';
+import { useRouter } from 'next/router';
 import { getVacancyById } from 'services/search';
+import { editVacancy } from 'services/vacancy';
+import toast, { Toaster } from 'react-hot-toast';
 
 const VacancySingle = ({data}) => {
+    const router = useRouter()
+    const apply = async() => {
+        const apply_count = (data?.data?.attributes?.apply_count || 0) + 1
+        const res = await editVacancy({data: {...data?.data?.attributes, apply_count}}, router?.query?.id)
+        console.log(res);
+        toast.success('successful applied')
+    }
     return (
         <>
             <>
+                <Toaster />
                 <section
                     className="section-hero overlay inner-page bg-image"
                     style={{ backgroundImage: 'url("images/hero_1.jpg")' }}
@@ -47,7 +57,7 @@ const VacancySingle = ({data}) => {
                                 </div>
                                 <div className="row mb-5">
                                     <div className="ml-auto col-6">
-                                        <a href="#" className="btn btn-block btn-primary btn-md">
+                                        <a href="#" className="btn btn-block btn-primary btn-md" onClick={apply}>
                                             Apply Now
                                         </a>
                                     </div>
@@ -77,6 +87,9 @@ const VacancySingle = ({data}) => {
                                         </li>
                                         <li className="mb-2">
                                             <strong className="text-black">Contact:</strong> {data?.data?.attributes?.contact}
+                                        </li>
+                                        <li className="mb-2">
+                                            <strong className="text-black">Applies:</strong> {data?.data?.attributes?.apply_count}
                                         </li>
                                     </ul>
                                 </div>

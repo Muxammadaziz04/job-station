@@ -64,7 +64,7 @@ const Navbar = () => {
                                     className="btn btn-primary border-width-2 d-none d-lg-inline-block ml-3"
                                     onClick={() => {
                                         localStorage.clear()
-                                        router.push('/auth/login')
+                                        router.push('/')
                                     }}
                                 >
                                     Log out

@@ -24,7 +24,7 @@ const Profile = () => {
     const onEdit = (id) => {
         user?.user_role === 'employer' ? router.push(`/edit/vacancy/${id}`) : router.push(`/edit/cv/${id}`) 
     }
-
+console.log(data);
     return (
         <div>
             <div className="site-mobile-menu site-navbar-target">
@@ -58,8 +58,8 @@ const Profile = () => {
                                 <JobItemEdit
                                     id={job.id}
                                     key={job.id}
-                                    title={job.attributes?.job_name}
-                                    name={job.attributes?.organization_name}
+                                    title={job.attributes?.job_name || job.attributes?.working_sphere}
+                                    name={job.attributes?.organization_name || job.attributes?.full_name}
                                     location={job.attributes?.working_days}
                                     experians={job.attributes?.working_hours}
                                     salary={job.attributes?.salary}
