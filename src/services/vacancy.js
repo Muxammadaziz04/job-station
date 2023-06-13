@@ -2,7 +2,9 @@ import api from "./api";
 
 export const postVacancy = async (body) => {
     try{
-    const {data} = await api.post('/api/vacancies', body)
+    const {data} = await api.post('/api/vacancies', body, {headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+    }})
     return data
     } catch (error) {
         console.log(error)
@@ -11,7 +13,9 @@ export const postVacancy = async (body) => {
 
 export const postResume = async (body) => {
     try{
-    const {data} = await api.post('/api/cvs', body)
+    const {data} = await api.post('/api/cvs', body,  {headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+    }})
     return data 
     } catch (error) {
         console.log(error)
@@ -38,7 +42,9 @@ export const getVacancyByUserId = async(id) => {
 
 export const deleteVacancy = async (id) => {
     try{
-    const {data} = await api.delete(`/api/vacancies/${id}`)
+    const {data} = await api.delete(`/api/vacancies/${id}`,  {headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+    }})
     return data
     } catch (error) {
         console.log(error)
@@ -47,7 +53,9 @@ export const deleteVacancy = async (id) => {
 
 export const deleteResume = async (id) => {
     try{
-    const {data} = await api.delete(`/api/cvs/${id}`)
+    const {data} = await api.delete(`/api/cvs/${id}`,  {headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+    }})
     return data
     } catch (error) {
         console.log(error)
@@ -56,7 +64,9 @@ export const deleteResume = async (id) => {
 
 export const editVacancy = async(body, id) =>{
     try {
-        const {data} = await api.put(`/api/vacancies/${id}`, body)
+        const {data} = await api.put(`/api/vacancies/${id}`, body,  {headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+        }})
         return data
     } catch (error) {
         console.log(error);
@@ -65,7 +75,9 @@ export const editVacancy = async(body, id) =>{
 
 export const editResume = async(body, id) =>{
     try {
-        const {data} = await api.put(`/api/cvs/${id}`, body)
+        const {data} = await api.put(`/api/cvs/${id}`, body,  {headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token') || "")}`
+        }})
         return data
     } catch (error) {
         console.log(error);
